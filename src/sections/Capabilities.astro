@@ -1,0 +1,95 @@
+---
+const caps = [
+  { t: "Permanenta samlingen", d: "Verk som galleriet äger och visar — noggrant utvalda över decennier.",              icon: "🜔" },
+  { t: "Utställningar",        d: "Tillfälliga visningar av enskilda konstnärer och tematiska grupputställningar.",    icon: "☌" },
+  { t: "Privat försäljning",   d: "Diskret förmedling av verk mellan samlare, utan publik auktion.",                   icon: "☉" },
+  { t: "Kommissioner",         d: "Vi förbinder samlare med konstnärer för beställningsverk anpassade till platsen.", icon: "⌘" },
+  { t: "Konstrådgivning",      d: "Kuratorisk vägledning för nya och erfarna samlare som bygger en kohesiv samling.", icon: "⌂" },
+  { t: "Evenemang",            d: "Vernissager, samtal med konstnärer och privata visningar för inbjudna gäster.",    icon: "♪" },
+];
+---
+
+<section class="caps" id="konstnarer">
+  <div class="caps-inner">
+
+    <div class="section-head caps-head">
+      <span class="chapter">§ III</span>
+      <span class="chapter-name">Tjänster</span>
+    </div>
+
+    <div class="caps-grid">
+      {caps.map((c, i) => (
+        <div class="cap">
+          <div class="cap-top">
+            <span class="cap-num">{String(i + 1).padStart(2, '0')}</span>
+            <span class="cap-glyph">{c.icon}</span>
+          </div>
+          <h3>{c.t}</h3>
+          <p>{c.d}</p>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .caps { background: var(--ink); color: var(--bone); margin-top: 40px; }
+  .caps-inner { max-width: 1320px; margin: 0 auto; padding: 100px 40px; }
+
+  .caps-head { border-color: rgba(244,236,222,0.18); }
+  .caps-head .chapter { color: var(--gold-soft); }
+  .caps-head .chapter-name { color: rgba(244,236,222,0.55); }
+
+  .caps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+  }
+  .cap {
+    padding: 40px 32px 48px;
+    border-right: 1px solid rgba(244,236,222,0.12);
+    border-bottom: 1px solid rgba(244,236,222,0.12);
+    position: relative;
+    transition: background .3s ease;
+  }
+  .cap:hover { background: rgba(201,163,91,0.06); }
+  .cap:nth-child(3n)        { border-right: none; }
+  .cap:nth-last-child(-n+3) { border-bottom: none; }
+
+  .cap-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 32px;
+  }
+  .cap-num {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    color: rgba(244,236,222,0.45);
+  }
+  .cap-glyph {
+    font-size: 26px;
+    color: var(--gold-soft);
+    font-style: normal;
+  }
+  .cap h3 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-style: italic;
+    font-size: 34px;
+    line-height: 1.08;
+    margin: 0 0 18px;
+    color: var(--bone);
+  }
+  .cap p {
+    font-family: var(--font-serif);
+    font-size: 16px;
+    line-height: 1.5;
+    font-weight: 300;
+    color: rgba(244,236,222,0.72);
+    margin: 0;
+    max-width: 34ch;
+  }
+</style>

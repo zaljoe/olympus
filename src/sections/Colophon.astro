@@ -1,0 +1,104 @@
+---
+---
+
+<footer class="colo">
+  <div class="colo-inner">
+
+    <div class="colo-top">
+      <div class="colo-mark">
+        <svg width="42" height="42" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M12 2 L22 18 L2 18 Z" stroke="currentColor" stroke-width="1" fill="none"/>
+          <circle cx="12" cy="13" r="2.2" fill="currentColor"/>
+        </svg>
+        <div>
+          <div class="w">Olympus Gallery</div>
+          <div class="s">Ett galleri av stilla ambition</div>
+        </div>
+      </div>
+
+      <div class="colo-set">
+        <div>
+          <div class="k">Stockholm</div>
+          <div class="v">Biblioteksgatan 12<br/>114 46</div>
+        </div>
+        <div>
+          <div class="k">Öppettider</div>
+          <div class="v">Tis–lör 11–18<br/>Sön 12–16</div>
+        </div>
+        <div>
+          <div class="k">Följ oss</div>
+          <div class="v">Instagram<br/>Are.na<br/>Nyhetsbrev</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="colo-foot">
+      <span>© MMXXVI Olympus Gallery · Alla rättigheter förbehållna.</span>
+      <span class="glyphs">✧ · ✦ · ✧</span>
+    </div>
+
+  </div>
+</footer>
+
+<style>
+  .colo { background: var(--ink); color: var(--bone); }
+  .colo-inner { max-width: 1320px; margin: 0 auto; padding: 80px 40px 40px; }
+
+  .colo-top {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 60px;
+    padding-bottom: 56px;
+    border-bottom: 1px solid rgba(244,236,222,0.18);
+  }
+  .colo-mark {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    color: var(--gold-soft);
+  }
+  .colo-mark .w {
+    font-family: var(--font-display);
+    font-size: 32px;
+    color: var(--bone);
+  }
+  .colo-mark .s {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 15px;
+    color: rgba(244,236,222,0.6);
+  }
+
+  .colo-set {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+  }
+  .colo-set .k {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold-soft);
+    margin-bottom: 10px;
+  }
+  .colo-set .v {
+    font-family: var(--font-serif);
+    font-size: 16px;
+    line-height: 1.55;
+    color: rgba(244,236,222,0.85);
+  }
+
+  .colo-foot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 24px;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    color: rgba(244,236,222,0.5);
+    text-transform: uppercase;
+  }
+  .glyphs { color: var(--gold); letter-spacing: 0.3em; }
+</style>

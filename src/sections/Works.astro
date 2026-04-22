@@ -1,0 +1,186 @@
+---
+const works = [
+  { num: "01", title: "Tystnadens atlas",    artist: "Anna Bergström",    year: "MMXXV",  medium: "Olja på linne",    img: "/images/work-1.jpg" },
+  { num: "02", title: "Det sjunde havet",    artist: "Marcus Lindqvist",  year: "MMXXV",  medium: "Skulptur · Brons", img: "/images/work-2.jpg" },
+  { num: "03", title: "Ljuset vid middagen", artist: "Sofia Ek",          year: "MMXXIV", medium: "Fotografi · C-print", img: "/images/work-3.jpg" },
+  { num: "04", title: "Röd meridian",        artist: "Jonas Hallberg",    year: "MMXXIV", medium: "Installation · Textil", img: "/images/work-4.jpg" },
+  { num: "05", title: "Den fördömde",        artist: "Erik Strand",       year: "MMXXVI", medium: "Måleri · Akryl",       img: "/images/work-5.jpg" },
+];
+---
+
+<section class="works" id="samling">
+  <div class="works-inner">
+
+    <div class="section-head">
+      <span class="chapter">§ II</span>
+      <span class="chapter-name">Samlingen — Urval av verk</span>
+      <span class="head-right">Visar fem av tjugoåtta</span>
+    </div>
+
+    <div class="gallery-grid">
+      {works.map((w) => (
+        <article class="gallery-item">
+          <div class="gallery-plate">
+            {w.img ? (
+              <img src={w.img} alt={`${w.title} — ${w.artist}`} loading="lazy" />
+            ) : (
+              <svg class="painterly-svg" viewBox="0 0 1200 900" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <radialGradient id={`sky-${w.num}`} cx="30%" cy="35%" r="85%">
+                    <stop offset="0%" stop-color="#3b5a5c"/>
+                    <stop offset="55%" stop-color="#1e3236"/>
+                    <stop offset="100%" stop-color="#0e1a1d"/>
+                  </radialGradient>
+                  <radialGradient id={`glow-${w.num}`} cx="72%" cy="58%" r="38%">
+                    <stop offset="0%" stop-color="#f6dfa0" stop-opacity="0.95"/>
+                    <stop offset="100%" stop-color="#8a4f1e" stop-opacity="0"/>
+                  </radialGradient>
+                </defs>
+                <rect width="1200" height="900" fill={`url(#sky-${w.num})`}/>
+                <rect width="1200" height="900" fill={`url(#glow-${w.num})`}/>
+              </svg>
+            )}
+            <div class="gallery-overlay" aria-hidden="true">
+              <span class="overlay-num">{w.num}</span>
+              <span class="overlay-cta">Visa verk →</span>
+            </div>
+          </div>
+          <div class="gallery-caption">
+            <div class="caption-left">
+              <div class="caption-title">{w.title}</div>
+              <div class="caption-artist">{w.artist}</div>
+            </div>
+            <div class="caption-right">
+              <div class="caption-medium">{w.medium}</div>
+              <div class="caption-year">{w.year}</div>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .works { max-width: 1320px; margin: 0 auto; padding: 40px 40px 80px; }
+  .head-right {
+    margin-left: auto;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+
+  /* 2×2 grid — first item spans 2 rows for editorial weight */
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 2px;
+  }
+  .gallery-item:first-child {
+    grid-row: span 2;
+  }
+
+  /* Plate */
+  .gallery-plate {
+    position: relative;
+    overflow: hidden;
+    background: var(--ink);
+    aspect-ratio: 4 / 3;
+  }
+  .gallery-item:first-child .gallery-plate {
+    aspect-ratio: unset;
+    height: 100%;
+    min-height: 480px;
+  }
+  .gallery-plate img,
+  .gallery-plate .painterly-svg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform .6s cubic-bezier(.2,.7,.3,1);
+  }
+  .gallery-plate .painterly-svg {
+    position: absolute;
+    inset: 0;
+  }
+  .gallery-item:hover .gallery-plate img,
+  .gallery-item:hover .gallery-plate .painterly-svg {
+    transform: scale(1.04);
+  }
+
+  /* Hover overlay */
+  .gallery-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(14,22,25,0.45);
+    opacity: 0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding: 24px 28px;
+    transition: opacity .35s ease;
+  }
+  .gallery-item:hover .gallery-overlay { opacity: 1; }
+  .overlay-num {
+    font-family: var(--font-display);
+    font-size: 64px;
+    font-style: italic;
+    font-weight: 300;
+    color: var(--gold-soft);
+    line-height: 1;
+  }
+  .overlay-cta {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--bone);
+  }
+
+  /* Caption */
+  .gallery-caption {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 14px 4px 28px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .caption-title {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 3px;
+    transition: color .2s ease, font-style .2s ease;
+  }
+  .gallery-item:hover .caption-title {
+    font-style: italic;
+    color: var(--gold);
+  }
+  .caption-artist {
+    font-family: var(--font-serif);
+    font-size: 13px;
+    font-style: italic;
+    color: var(--muted);
+  }
+  .caption-right { text-align: right; }
+  .caption-medium {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 3px;
+  }
+  .caption-year {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 16px;
+    color: var(--ink-2);
+  }
+</style>

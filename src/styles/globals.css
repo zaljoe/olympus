@@ -1,0 +1,127 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Design tokens ─────────────────────────────────────── */
+:root {
+  --cream:     #ece4d2;
+  --cream-2:   #e3d9c2;
+  --bone:      #f4ecde;
+  --ink:       #16222a;
+  --ink-2:     #1f2f37;
+  --teal:      #24434a;
+  --gold:      #b8864a;
+  --gold-2:    #c9a35b;
+  --gold-soft: #d9b675;
+  --rust:      #a05a2c;
+  --muted:     #6b6253;
+  --rule:      #cdc3ac;
+
+  --font-display: 'Cormorant Garamond', 'Fraunces', serif;
+  --font-serif:   'Fraunces', 'EB Garamond', Georgia, serif;
+  --font-sans:    'Inter Tight', system-ui, sans-serif;
+  --font-mono:    'JetBrains Mono', ui-monospace, monospace;
+}
+
+/* ─── Base ──────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: geometricPrecision;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-weight: 400;
+  overflow-x: hidden;
+}
+
+::selection { background: var(--ink); color: var(--bone); }
+
+/* ─── Paper grain ───────────────────────────────────────── */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: .35;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='2' seed='7'/><feColorMatrix values='0 0 0 0 0.08  0 0 0 0 0.07  0 0 0 0 0.05  0 0 0 0.35 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  z-index: 9000;
+}
+
+/* ─── Section head (shared) ─────────────────────────────── */
+.section-head {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 56px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--rule);
+}
+.section-head .chapter {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 22px;
+  color: var(--gold);
+}
+.section-head .chapter-name {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ─── Buttons ───────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  height: 50px;
+  padding: 0 24px;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  border-radius: 999px;
+  transition: all .25s ease;
+  cursor: pointer;
+  border: none;
+}
+.btn-primary {
+  background: var(--gold);
+  color: #15100a;
+  border: 1px solid var(--gold);
+}
+.btn-primary:hover {
+  background: var(--gold-soft);
+  border-color: var(--gold-soft);
+}
+.btn-ghost {
+  background: transparent;
+  color: var(--bone);
+  border: 1px solid rgba(244,236,222,0.45);
+}
+.btn-ghost:hover {
+  background: rgba(244,236,222,0.1);
+  border-color: var(--bone);
+}
+
+/* ─── Ticker animation ──────────────────────────────────── */
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@keyframes pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(201,163,91,0.7); }
+  70%  { box-shadow: 0 0 0 10px rgba(201,163,91,0); }
+  100% { box-shadow: 0 0 0 0 rgba(201,163,91,0); }
+}

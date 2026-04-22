@@ -1,0 +1,215 @@
+---
+const budgets = ["< 25 000 kr", "25–100 000 kr", "100–500 000 kr", "Öppet"];
+---
+
+<section class="corr" id="forvärva">
+  <div class="corr-inner">
+
+    <div class="corr-left">
+      <div class="section-head">
+        <span class="chapter">§ IV</span>
+        <span class="chapter-name">Förvärva</span>
+      </div>
+
+      <h2 class="corr-title">
+        <span>Skriv till</span>
+        <span class="it">galleriet.</span>
+      </h2>
+      <p class="corr-p">
+        Vi läser varje förfrågan och svarar de flesta inom en vecka.
+        För förvärv räcker ett kort stycke — vilket verk, vilket
+        rum det ska hänga i, och ett förnamn vi kan ringa.
+      </p>
+
+      <div class="letter">
+        <div class="letter-row">
+          <span class="ll">Till</span>
+          <span class="lv">Olympus Gallery, Förvärvningsavdelningen</span>
+        </div>
+        <div class="letter-row">
+          <span class="ll">Besök</span>
+          <span class="lv">Biblioteksgatan 12 · Stockholm 114 46</span>
+        </div>
+        <div class="letter-row">
+          <span class="ll">E-post</span>
+          <span class="lv">forvärv@olympusgallery.se</span>
+        </div>
+        <div class="letter-row">
+          <span class="ll">Öppet</span>
+          <span class="lv">Tis–lör 11–18 · Sön 12–16</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="corr-right">
+      <form class="form" id="commission-form" novalidate>
+        <div class="field">
+          <label for="field-name">Ditt namn</label>
+          <input type="text" id="field-name" name="name" autocomplete="name" />
+        </div>
+        <div class="field">
+          <label for="field-org">Vilket verk intresserar dig?</label>
+          <input type="text" id="field-org" name="work" />
+        </div>
+        <div class="field">
+          <label for="field-message">Berätta om förfrågan</label>
+          <textarea id="field-message" name="message" rows="5"></textarea>
+        </div>
+        <div class="field">
+          <label>Budget, ungefär</label>
+          <div class="chips" role="group" aria-label="Budget">
+            {budgets.map((b) => (
+              <button type="button" class="chip" data-budget={b}>{b}</button>
+            ))}
+          </div>
+        </div>
+        <button type="submit" class="send">
+          <span>Skicka förfrågan</span>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+            <path d="M1 7 L12 7 M7 2 L12 7 L7 12" stroke="currentColor" stroke-width="1.3"/>
+          </svg>
+        </button>
+      </form>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .corr { max-width: 1320px; margin: 0 auto; padding: 120px 40px 80px; }
+  .corr-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .corr-title {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: clamp(52px, 6vw, 92px);
+    line-height: 0.95;
+    letter-spacing: -0.01em;
+    margin: 0 0 28px;
+    color: var(--ink);
+  }
+  .corr-title span { display: block; }
+  .corr-title .it { font-style: italic; color: var(--gold); }
+  .corr-p {
+    font-family: var(--font-serif);
+    font-size: 19px;
+    line-height: 1.55;
+    font-weight: 300;
+    color: var(--ink-2);
+    max-width: 42ch;
+    margin: 0 0 48px;
+    text-wrap: pretty;
+  }
+
+  .letter {
+    padding: 24px 28px;
+    background: color-mix(in oklab, var(--cream) 85%, var(--ink) 6%);
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+  }
+  .letter-row {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    padding: 8px 0;
+    border-bottom: 1px dashed var(--rule);
+  }
+  .letter-row:last-child { border-bottom: none; }
+  .letter-row .ll {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    color: var(--muted);
+    text-transform: uppercase;
+    align-self: center;
+  }
+  .letter-row .lv {
+    font-family: var(--font-serif);
+    font-size: 16px;
+    color: var(--ink);
+  }
+
+  .form {
+    padding: 36px 36px 28px;
+    background: var(--bone);
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    position: relative;
+  }
+  .form::before {
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: 24px;
+    right: 24px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+  .field { margin-bottom: 22px; }
+  .field label {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .field input,
+  .field textarea {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--rule);
+    padding: 10px 0;
+    font-family: var(--font-serif);
+    font-size: 19px;
+    color: var(--ink);
+    outline: none;
+    transition: border-color .2s ease;
+    resize: vertical;
+  }
+  .field input:focus,
+  .field textarea:focus { border-color: var(--gold); }
+
+  .chips { display: flex; gap: 8px; flex-wrap: wrap; }
+  .chip {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    padding: 10px 14px;
+    border: 1px solid var(--rule);
+    background: transparent;
+    color: var(--ink);
+    border-radius: 999px;
+    cursor: pointer;
+    transition: all .2s ease;
+  }
+  .chip:hover { border-color: var(--ink); }
+  .chip.on { background: var(--ink); color: var(--bone); border-color: var(--ink); }
+
+  .send {
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    height: 54px;
+    background: var(--ink);
+    color: var(--bone);
+    border: none;
+    border-radius: 999px;
+    font-family: var(--font-sans);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all .25s ease;
+    margin-top: 12px;
+  }
+  .send:hover { background: var(--gold); color: var(--ink); }
+</style>

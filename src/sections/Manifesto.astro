@@ -1,0 +1,85 @@
+---
+---
+
+<section class="manifesto" id="utstallning">
+  <div class="manifesto-inner">
+
+    <div class="section-head">
+      <span class="chapter">§ I</span>
+      <span class="chapter-name">Galleriet</span>
+    </div>
+
+    <div class="manifesto-grid">
+      <div class="drop-cap">
+        <p>
+          <span class="drop">O</span>lympus Gallery är ett galleri för samtidskonst
+          med hemvist i Stockholm. Vi arbetar nära konstnärerna —
+          från ateljé till utställning — och ställer ut verk som
+          tål att betraktas länge.
+        </p>
+        <p>
+          Våra samlare kommer med en känsla de inte kan sätta ord på.
+          Vi återger den formen. Vi återger rummet. Vi återger
+          verket som gör hemmet fullständigt.
+        </p>
+      </div>
+
+      <aside class="manifesto-img">
+        <img src="/images/manifesto.jpg" alt="Art Institute of Chicago" />
+      </aside>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .manifesto {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 120px 40px 80px;
+  }
+  .manifesto-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .drop-cap p {
+    font-family: var(--font-serif);
+    font-size: 26px;
+    line-height: 1.35;
+    font-weight: 300;
+    color: var(--ink);
+    margin: 0 0 22px;
+    text-wrap: pretty;
+    max-width: 28ch;
+  }
+  .drop-cap .drop {
+    font-family: var(--font-display);
+    float: left;
+    font-size: 96px;
+    line-height: 0.8;
+    padding: 8px 14px 0 0;
+    color: var(--gold);
+    font-style: italic;
+    font-weight: 400;
+  }
+  .manifesto-img {
+    position: relative;
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    overflow: hidden;
+    aspect-ratio: 4 / 5;
+  }
+  .manifesto-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform .6s ease;
+  }
+  .manifesto-img:hover img {
+    transform: scale(1.03);
+  }
+</style>

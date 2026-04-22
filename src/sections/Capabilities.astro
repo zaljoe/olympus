@@ -93,6 +93,14 @@ const caps = [
     max-width: 34ch;
   }
 
+  @media (max-width: 1280px) {
+    .caps-inner { padding: 80px 24px; }
+    .caps-grid { grid-template-columns: repeat(2, 1fr); }
+    .cap:nth-child(3n)        { border-right: 1px solid rgba(244,236,222,0.12); }
+    .cap:nth-last-child(-n+3) { border-bottom: 1px solid rgba(244,236,222,0.12); }
+    .cap:nth-child(2n)        { border-right: none; }
+    .cap:nth-last-child(-n+2) { border-bottom: none; }
+  }
   @media (max-width: 768px) {
     .caps-inner { padding: 60px 20px; }
     .caps-grid { grid-template-columns: 1fr; }

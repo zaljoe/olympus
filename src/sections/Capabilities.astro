@@ -92,4 +92,18 @@ const caps = [
     margin: 0;
     max-width: 34ch;
   }
+
+  @media (max-width: 768px) {
+    .caps-inner { padding: 60px 20px; }
+    .caps-grid { grid-template-columns: 1fr; }
+    .cap {
+      border-right: none;
+      border-bottom: 1px solid rgba(244,236,222,0.12);
+      padding: 32px 0;
+    }
+    .cap:nth-child(3n) { border-right: none; }
+    .cap:nth-last-child(-n+3) { border-bottom: 1px solid rgba(244,236,222,0.12); }
+    .cap:last-child { border-bottom: none; }
+    .cap h3 { font-size: 28px; }
+  }
 </style>

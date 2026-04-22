@@ -212,4 +212,18 @@ const budgets = ["< 25 000 kr", "25–100 000 kr", "100–500 000 kr", "Öppet"]
     margin-top: 12px;
   }
   .send:hover { background: var(--gold); color: var(--ink); }
+
+  @media (max-width: 768px) {
+    .corr { padding: 60px 20px 60px; }
+    .corr-inner {
+      grid-template-columns: 1fr;
+      gap: 48px;
+    }
+    .corr-title { font-size: clamp(42px, 12vw, 64px); }
+    .corr-p { font-size: 16px; margin-bottom: 32px; }
+    .letter-row { grid-template-columns: 70px 1fr; }
+    .form { padding: 24px 20px 20px; }
+    .chips { gap: 6px; }
+    .chip { font-size: 10px; padding: 8px 12px; }
+  }
 </style>

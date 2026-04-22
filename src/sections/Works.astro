@@ -183,4 +183,26 @@ const works = [
     font-size: 16px;
     color: var(--ink-2);
   }
+
+  @media (max-width: 768px) {
+    .works { padding: 40px 20px 60px; }
+    .head-right { display: none; }
+    .gallery-grid {
+      grid-template-columns: 1fr;
+      gap: 2px;
+    }
+    .gallery-item:first-child { grid-row: span 1; }
+    .gallery-item:first-child .gallery-plate {
+      height: auto;
+      min-height: unset;
+      aspect-ratio: 4 / 3;
+    }
+    .gallery-caption {
+      flex-direction: column;
+      gap: 4px;
+      padding: 12px 4px 20px;
+    }
+    .caption-right { text-align: left; }
+    .caption-title { font-size: 18px; }
+  }
 </style>

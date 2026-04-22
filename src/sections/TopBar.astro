@@ -53,6 +53,16 @@ const nav = [
     border-bottom: 1px solid var(--rule);
     backdrop-filter: blur(8px);
   }
+  @media (max-width: 768px) {
+    .masthead-inner {
+      grid-template-columns: 1fr auto;
+      padding: 14px 20px;
+    }
+    .nav { display: none; }
+    .meta { display: none; }
+    .wordmark { font-size: 18px; }
+    .est { display: none; }
+  }
   .masthead-inner {
     max-width: 1320px;
     margin: 0 auto;

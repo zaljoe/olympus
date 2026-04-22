@@ -349,4 +349,34 @@ const tickerItems = ["Måleri","★","Skulptur","★","Fotografi","★","Install
     from { transform: translateX(0); }
     to   { transform: translateX(-25%); }
   }
+
+  @media (max-width: 768px) {
+    .plate-index { top: 80px; left: 20px; }
+    .plate-index-num { font-size: 36px; }
+
+    .hero-content {
+      padding: 140px 20px 40px;
+      min-height: 90svh;
+    }
+    .hero-title {
+      font-size: clamp(52px, 13vw, 80px);
+      margin-bottom: 20px;
+    }
+    .hero-lede { font-size: 16px; margin-bottom: 28px; }
+    .hero-actions { flex-direction: column; gap: 10px; }
+    .btn { width: 100%; justify-content: center; }
+
+    .hero-strip {
+      padding: 20px;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .strip-left {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .strip-right { align-items: flex-start; text-align: left; }
+
+    .ticker-run { gap: 24px; font-size: 20px; }
+  }
 </style>

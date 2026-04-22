@@ -82,4 +82,15 @@
   .manifesto-img:hover img {
     transform: scale(1.03);
   }
+
+  @media (max-width: 768px) {
+    .manifesto { padding: 60px 20px 40px; }
+    .manifesto-grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    .drop-cap p { font-size: 20px; max-width: 100%; }
+    .drop-cap .drop { font-size: 72px; }
+    .manifesto-img { aspect-ratio: 16 / 9; }
+  }
 </style>

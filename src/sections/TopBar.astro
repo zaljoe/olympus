@@ -53,20 +53,6 @@ const nav = [
     border-bottom: 1px solid var(--rule);
     backdrop-filter: blur(8px);
   }
-  @media (max-width: 1280px) {
-    .masthead-inner { padding: 14px 24px; }
-    .meta { display: none; }
-  }
-  @media (max-width: 768px) {
-    .masthead-inner {
-      grid-template-columns: 1fr auto;
-      padding: 14px 20px;
-    }
-    .nav { display: none; }
-    .meta { display: none; }
-    .wordmark { font-size: 18px; }
-    .est { display: none; }
-  }
   .masthead-inner {
     max-width: 1320px;
     margin: 0 auto;
@@ -142,5 +128,19 @@ const nav = [
     background: var(--gold);
     box-shadow: 0 0 0 0 rgba(201,163,91,0.7);
     animation: pulse 2.4s ease-out infinite;
+  }
+
+  @media (max-width: 1280px) {
+    .masthead-inner { padding: 14px 24px; }
+    .meta { display: none; }
+  }
+  @media (max-width: 768px) {
+    .masthead-inner {
+      grid-template-columns: 1fr auto;
+      padding: 12px 20px;
+    }
+    .nav { display: none; }
+    .wordmark { font-size: 18px; }
+    .est { display: none; }
   }
 </style>

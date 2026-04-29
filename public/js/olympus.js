@@ -4,14 +4,23 @@
   /* ── Sticky nav: transparent → solid on scroll ──────────── */
   var masthead = document.getElementById('masthead');
   if (masthead) {
+    var ticking = false;
+    var isSolid = false;
+    function checkScroll() {
+      var shouldBeSolid = window.scrollY > 80;
+      if (shouldBeSolid !== isSolid) {
+        masthead.classList.toggle('solid', shouldBeSolid);
+        isSolid = shouldBeSolid;
+      }
+      ticking = false;
+    }
     function onScroll() {
-      if (window.scrollY > 80) {
-        masthead.classList.add('solid');
-      } else {
-        masthead.classList.remove('solid');
+      if (!ticking) {
+        requestAnimationFrame(checkScroll);
+        ticking = true;
       }
     }
-    requestAnimationFrame(onScroll);
+    requestAnimationFrame(checkScroll);
     window.addEventListener('scroll', onScroll, { passive: true });
   }
 

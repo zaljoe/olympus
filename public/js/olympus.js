@@ -11,7 +11,7 @@
         masthead.classList.remove('solid');
       }
     }
-    onScroll();
+    requestAnimationFrame(onScroll);
     window.addEventListener('scroll', onScroll, { passive: true });
   }
 

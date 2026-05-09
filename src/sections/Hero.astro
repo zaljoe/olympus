@@ -18,9 +18,20 @@ const tickerItems = ["Måleri","★","Skulptur","★","Fotografi","★","Install
       poster="/images/hero.webp"
       aria-hidden="true"
     >
-      <source src="/images/hero.webm" type="video/webm" />
-      <source src="/images/hero.mp4" type="video/mp4" />
+      <source data-desktop="/images/hero.webm" data-mobile="/images/hero-mobile.webm" type="video/webm" />
+      <source data-desktop="/images/hero.mp4" data-mobile="/images/hero-mobile.mp4" type="video/mp4" />
     </video>
+    <script is:inline>
+      (function () {
+        var v = document.querySelector('.hero-video');
+        if (!v) return;
+        var key = window.matchMedia('(max-width: 767px)').matches ? 'mobile' : 'desktop';
+        v.querySelectorAll('source').forEach(function (s) {
+          s.src = s.dataset[key];
+        });
+        v.load();
+      })();
+    </script>
     <img
       class="hero-poster"
       src="/images/hero.webp"
